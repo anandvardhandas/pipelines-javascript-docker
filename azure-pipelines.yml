@@ -1,33 +1,14 @@
-# Starter pipeline
 - task: Kubernetes@1
   inputs:
     connectionType: 'Azure Resource Manager'
-    azureSubscriptionEndpoint: 'c6277ba8-1b48-4da1-a35b-a12676fc98f5'
+    azureSubscriptionEndpoint: 'Visual Studio Enterprise(e203d830-a6ca-4bcc-86c3-060a1040c1b7)'
     azureResourceGroup: 'aksdevops'
     kubernetesCluster: 'aksdevops'
-    namespace: 'testcicd'
-    command: 
+    namespace: 'default'
+    command: 'apply'
+    arguments: '-f azure-pipelines.yml'
     secretType: 'dockerRegistry'
     containerRegistryType: 'Azure Container Registry'
     azureSubscriptionEndpointForSecrets: 'Visual Studio Enterprise(e203d830-a6ca-4bcc-86c3-060a1040c1b7)'
     azureContainerRegistry: 'akscrtest.azurecr.io'
     secretName: 'test'
-    outputFormat: 'yaml'
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
-trigger:
-- master
-
-pool:
-  vmImage: 'ubuntu-latest'
-
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
