@@ -1,14 +1,3 @@
-- task: Kubernetes@1
+- task: DotNetCoreCLI@2
   inputs:
-    connectionType: 'Azure Resource Manager'
-    azureSubscriptionEndpoint: 'Visual Studio Enterprise(e203d830-a6ca-4bcc-86c3-060a1040c1b7)'
-    azureResourceGroup: 'aksdevops'
-    kubernetesCluster: 'aksdevops'
-    namespace: 'default'
-    command: 'apply'
-    arguments: '-f azure-pipelines.yml'
-    secretType: 'dockerRegistry'
-    containerRegistryType: 'Azure Container Registry'
-    azureSubscriptionEndpointForSecrets: 'Visual Studio Enterprise(e203d830-a6ca-4bcc-86c3-060a1040c1b7)'
-    azureContainerRegistry: 'akscrtest.azurecr.io'
-    secretName: 'test'
+    command: 'build'
